@@ -36,3 +36,923 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+  [1m[36mJob Load (2.4ms)[0m  [1mSELECT  "jobs".* FROM "jobs"  ORDER BY "jobs"."id" ASC LIMIT 1[0m
+PG::UndefinedTable: ERROR:  relation "links" does not exist
+LINE 5:                WHERE a.attrelid = '"links"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"links"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'uris'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "links"[0m
+PG::UndefinedTable: ERROR:  table "links" does not exist
+: DROP TABLE "links"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "links"[0m
+PG::UndefinedTable: ERROR:  table "links" does not exist
+: DROP TABLE "links"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'uris'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "links"[0m
+PG::UndefinedTable: ERROR:  table "links" does not exist
+: DROP TABLE "links"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mDROP TABLE "links"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1  [["version", "20160305204237"]]
+  [1m[36m (7.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (10.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (15.4ms)[0m  CREATE TABLE "links" ("id" serial primary key, "job_id" integer, "url" text, "images" text[] DEFAULT '{}', "complete" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160305204237"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'links'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mLink Load (0.5ms)[0m  [1mSELECT "links".* FROM "links"[0m
+  [1m[35mLink Load (0.2ms)[0m  SELECT "links".* FROM "links" WHERE "links"."complete" = $1  [["complete", "t"]]
+  [1m[36mLink Load (3.6ms)[0m  [1mSELECT "links".* FROM "links" WHERE "links"."complete" = $1[0m  [["complete", "f"]]
+  [1m[35m (1.5ms)[0m  SELECT COUNT(*) FROM "links" WHERE "links"."complete" = $1  [["complete", "f"]]
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT "jobs".* FROM "jobs"[0m
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 15:01:43 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https:// google.com", "https://www.statuspage.io"], "job"=>{}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 1.5ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.0ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.1ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (51.0ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (106.0ms)
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 15:02:51 -0700
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https://google.com", "https://www.statuspage.io"], "job"=>{}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.0ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.4ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.4ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (92.2ms)
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 15:03:17 -0700
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https://google.com", "https://www.statuspage.io"], "job"=>{}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.5ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (41.1ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (89.0ms)
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 15:03:23 -0700
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https://google.com", "https://www.statuspage.io"], "job"=>{}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.7ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.9ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.5ms)
+
+
+Started POST "/jobs?urls=[%22https://google.com%22,%22https://www.statuspage.io%22]" for ::1 at 2016-03-05 15:06:15 -0700
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>"[\"https://google.com\",\"https://www.statuspage.io\"]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.4) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.5ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (85.3ms)
+
+
+Started POST "/jobs?urls=[%22https://google.com%22,%22https://www.statuspage.io%22]" for ::1 at 2016-03-05 15:06:54 -0700
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>"[\"https://google.com\",\"https://www.statuspage.io\"]"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "jobs" ("params", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["params", "[\"https://google.com\",\"https://www.statuspage.io\"]"], ["created_at", "2016-03-05 22:06:54.174858"], ["updated_at", "2016-03-05 22:06:54.174858"]]
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://google.com"], ["job_id", 1], ["created_at", "2016-03-05 22:06:54.207568"], ["updated_at", "2016-03-05 22:06:54.207568"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io"], ["job_id", 1], ["created_at", "2016-03-05 22:06:54.797620"], ["updated_at", "2016-03-05 22:06:54.797620"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+Completed 202 Accepted in 1306ms (Views: 0.3ms | ActiveRecord: 8.5ms)
+  [1m[36mLink Load (0.3ms)[0m  [1mSELECT "links".* FROM "links"[0m
+  [1m[35mLink Load (0.2ms)[0m  SELECT "links".* FROM "links" WHERE "links"."complete" = $1  [["complete", "f"]]
+  [1m[36mLink Load (4.4ms)[0m  [1mSELECT "links".* FROM "links" WHERE "links"."complete" = $1[0m  [["complete", "f"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[36mLink Load (0.3ms)[0m  [1mSELECT "links".* FROM "links" WHERE "links"."complete" = $1[0m  [["complete", "f"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "links" SET "complete" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["complete", "t"], ["updated_at", "2016-03-05 22:28:28.504259"], ["id", 1]]
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 15:39:09 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https://google.com", "https://www.statuspage.io"], "job"=>{}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "jobs" ("params", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["params", "[\"https://google.com\", \"https://www.statuspage.io\"]"], ["created_at", "2016-03-05 22:39:09.610505"], ["updated_at", "2016-03-05 22:39:09.610505"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://google.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.634218"], ["updated_at", "2016-03-05 22:39:09.634218"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com/imghp?hl=en&tab=wi"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.966939"], ["updated_at", "2016-03-05 22:39:09.966939"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://maps.google.com/maps?hl=en&tab=wl"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.969472"], ["updated_at", "2016-03-05 22:39:09.969472"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://play.google.com/?hl=en&tab=w8"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.971044"], ["updated_at", "2016-03-05 22:39:09.971044"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.youtube.com/?tab=w1"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.972503"], ["updated_at", "2016-03-05 22:39:09.972503"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://news.google.com/nwshp?hl=en&tab=wn"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.973850"], ["updated_at", "2016-03-05 22:39:09.973850"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://mail.google.com/mail/?tab=wm"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.975170"], ["updated_at", "2016-03-05 22:39:09.975170"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://drive.google.com/?tab=wo"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.976494"], ["updated_at", "2016-03-05 22:39:09.976494"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.google.com/intl/en/options/"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.977837"], ["updated_at", "2016-03-05 22:39:09.977837"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.google.com/history/optout?hl=en"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.979248"], ["updated_at", "2016-03-05 22:39:09.979248"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.981038"], ["updated_at", "2016-03-05 22:39:09.981038"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://plus.google.com/116899029375914044550"], ["job_id", 2], ["created_at", "2016-03-05 22:39:09.984409"], ["updated_at", "2016-03-05 22:39:09.984409"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "complete" = $1, "updated_at" = $2 WHERE "links"."id" = $3  [["complete", "t"], ["updated_at", "2016-03-05 22:39:10.244217"], ["id", 3]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io"], ["job_id", 2], ["created_at", "2016-03-05 22:39:10.249243"], ["updated_at", "2016-03-05 22:39:10.249243"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.004551"], ["updated_at", "2016-03-05 22:39:11.004551"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/login"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.008460"], ["updated_at", "2016-03-05 22:39:11.008460"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.009915"], ["updated_at", "2016-03-05 22:39:11.009915"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.011698"], ["updated_at", "2016-03-05 22:39:11.011698"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://blog.statuspage.io/introducing-private-status-pages?utm_source=statuspageio&utm_medium=website&utm_content=introducing_private_status_pages&utm_campaign=stspg_homepage_announcement"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.018011"], ["updated_at", "2016-03-05 22:39:11.018011"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.newrelic.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.019625"], ["updated_at", "2016-03-05 22:39:11.019625"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.bitbucket.org"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.020922"], ["updated_at", "2016-03-05 22:39:11.020922"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.travis-ci.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.022224"], ["updated_at", "2016-03-05 22:39:11.022224"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.disqus.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.023521"], ["updated_at", "2016-03-05 22:39:11.023521"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.vimeo.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.025022"], ["updated_at", "2016-03-05 22:39:11.025022"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.kissmetrics.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.027192"], ["updated_at", "2016-03-05 22:39:11.027192"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.gotomeeting.com/"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.028927"], ["updated_at", "2016-03-05 22:39:11.028927"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.kickstarter.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.030199"], ["updated_at", "2016-03-05 22:39:11.030199"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://meta.statuspage.io"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.031915"], ["updated_at", "2016-03-05 22:39:11.031915"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://help.statuspage.io/knowledge_base/topics/pipe-activity-log-into-hipchat"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.034583"], ["updated_at", "2016-03-05 22:39:11.034583"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://help.statuspage.io/knowledge_base/topics/pipe-activity-log-into-campfire"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.035903"], ["updated_at", "2016-03-05 22:39:11.035903"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/tour#downtime"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.037234"], ["updated_at", "2016-03-05 22:39:11.037234"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/tour#notifications"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.038527"], ["updated_at", "2016-03-05 22:39:11.038527"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.039846"], ["updated_at", "2016-03-05 22:39:11.039846"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.041204"], ["updated_at", "2016-03-05 22:39:11.041204"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.042535"], ["updated_at", "2016-03-05 22:39:11.042535"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/pricing"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.043823"], ["updated_at", "2016-03-05 22:39:11.043823"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/pricing"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.045115"], ["updated_at", "2016-03-05 22:39:11.045115"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://kissmetrics.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.046369"], ["updated_at", "2016-03-05 22:39:11.046369"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://travis-ci.org/"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.047621"], ["updated_at", "2016-03-05 22:39:11.047621"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.podio.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.048930"], ["updated_at", "2016-03-05 22:39:11.048930"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://www.customer.io"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.050265"], ["updated_at", "2016-03-05 22:39:11.050265"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.newrelic.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.051624"], ["updated_at", "2016-03-05 22:39:11.051624"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://www.iron.io"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.052960"], ["updated_at", "2016-03-05 22:39:11.052960"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.054294"], ["updated_at", "2016-03-05 22:39:11.054294"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://better-error-pages.statuspage.io/"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.057926"], ["updated_at", "2016-03-05 22:39:11.057926"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://blog.statuspage.io"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.059508"], ["updated_at", "2016-03-05 22:39:11.059508"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://twitter.com/statuspageio"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.061318"], ["updated_at", "2016-03-05 22:39:11.061318"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/about"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.062637"], ["updated_at", "2016-03-05 22:39:11.062637"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://metastatuspage.com"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.063982"], ["updated_at", "2016-03-05 22:39:11.063982"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://doers.statuspage.io/"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.065354"], ["updated_at", "2016-03-05 22:39:11.065354"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://help.statuspage.io/"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.066788"], ["updated_at", "2016-03-05 22:39:11.066788"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/terms-of-service"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.068055"], ["updated_at", "2016-03-05 22:39:11.068055"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/privacy-policy"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.069295"], ["updated_at", "2016-03-05 22:39:11.069295"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/security"], ["job_id", 2], ["created_at", "2016-03-05 22:39:11.070532"], ["updated_at", "2016-03-05 22:39:11.070532"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "complete" = $1, "updated_at" = $2 WHERE "links"."id" = $3  [["complete", "t"], ["updated_at", "2016-03-05 22:39:11.364272"], ["id", 15]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Completed 202 Accepted in 1768ms (Views: 0.3ms | ActiveRecord: 13.3ms)
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 15:59:59 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https://google.com", "https://www.statuspage.io"], "job"=>{}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "jobs" ("params", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["params", "[\"https://google.com\", \"https://www.statuspage.io\"]"], ["created_at", "2016-03-05 22:59:59.959798"], ["updated_at", "2016-03-05 22:59:59.959798"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://google.com"], ["job_id", 3], ["created_at", "2016-03-05 22:59:59.983436"], ["updated_at", "2016-03-05 22:59:59.983436"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com/imghp?hl=en&tab=wi"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.736554"], ["updated_at", "2016-03-05 23:00:00.736554"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://maps.google.com/maps?hl=en&tab=wl"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.738621"], ["updated_at", "2016-03-05 23:00:00.738621"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://play.google.com/?hl=en&tab=w8"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.740152"], ["updated_at", "2016-03-05 23:00:00.740152"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.youtube.com/?tab=w1"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.741481"], ["updated_at", "2016-03-05 23:00:00.741481"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://news.google.com/nwshp?hl=en&tab=wn"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.742871"], ["updated_at", "2016-03-05 23:00:00.742871"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://mail.google.com/mail/?tab=wm"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.744289"], ["updated_at", "2016-03-05 23:00:00.744289"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://drive.google.com/?tab=wo"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.745757"], ["updated_at", "2016-03-05 23:00:00.745757"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.google.com/intl/en/options/"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.747301"], ["updated_at", "2016-03-05 23:00:00.747301"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.google.com/history/optout?hl=en"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.748639"], ["updated_at", "2016-03-05 23:00:00.748639"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.750523"], ["updated_at", "2016-03-05 23:00:00.750523"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://plus.google.com/116899029375914044550"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.753961"], ["updated_at", "2016-03-05 23:00:00.753961"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "images" = $1, "updated_at" = $2 WHERE "links"."id" = $3  [["images", "{https://google.com/images/icons/product/chrome-48.png,https://google.com/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png}"], ["updated_at", "2016-03-05 23:00:00.990242"], ["id", 56]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "links" SET "complete" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["complete", "t"], ["updated_at", "2016-03-05 23:00:00.995471"], ["id", 56]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io"], ["job_id", 3], ["created_at", "2016-03-05 23:00:00.997193"], ["updated_at", "2016-03-05 23:00:00.997193"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.597352"], ["updated_at", "2016-03-05 23:00:01.597352"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/login"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.601372"], ["updated_at", "2016-03-05 23:00:01.601372"]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.603003"], ["updated_at", "2016-03-05 23:00:01.603003"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.605568"], ["updated_at", "2016-03-05 23:00:01.605568"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://blog.statuspage.io/introducing-private-status-pages?utm_source=statuspageio&utm_medium=website&utm_content=introducing_private_status_pages&utm_campaign=stspg_homepage_announcement"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.607259"], ["updated_at", "2016-03-05 23:00:01.607259"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.newrelic.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.614530"], ["updated_at", "2016-03-05 23:00:01.614530"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.bitbucket.org"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.615992"], ["updated_at", "2016-03-05 23:00:01.615992"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.travis-ci.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.617351"], ["updated_at", "2016-03-05 23:00:01.617351"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.disqus.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.618811"], ["updated_at", "2016-03-05 23:00:01.618811"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.vimeo.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.620082"], ["updated_at", "2016-03-05 23:00:01.620082"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.kissmetrics.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.621476"], ["updated_at", "2016-03-05 23:00:01.621476"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.gotomeeting.com/"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.622776"], ["updated_at", "2016-03-05 23:00:01.622776"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.kickstarter.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.624029"], ["updated_at", "2016-03-05 23:00:01.624029"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://meta.statuspage.io"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.625678"], ["updated_at", "2016-03-05 23:00:01.625678"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://help.statuspage.io/knowledge_base/topics/pipe-activity-log-into-hipchat"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.628201"], ["updated_at", "2016-03-05 23:00:01.628201"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://help.statuspage.io/knowledge_base/topics/pipe-activity-log-into-campfire"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.629725"], ["updated_at", "2016-03-05 23:00:01.629725"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/tour#downtime"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.631331"], ["updated_at", "2016-03-05 23:00:01.631331"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/tour#notifications"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.633405"], ["updated_at", "2016-03-05 23:00:01.633405"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.635723"], ["updated_at", "2016-03-05 23:00:01.635723"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.637424"], ["updated_at", "2016-03-05 23:00:01.637424"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.638748"], ["updated_at", "2016-03-05 23:00:01.638748"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/pricing"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.640061"], ["updated_at", "2016-03-05 23:00:01.640061"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/pricing"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.641322"], ["updated_at", "2016-03-05 23:00:01.641322"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://kissmetrics.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.642572"], ["updated_at", "2016-03-05 23:00:01.642572"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://travis-ci.org/"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.644092"], ["updated_at", "2016-03-05 23:00:01.644092"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://www.podio.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.645420"], ["updated_at", "2016-03-05 23:00:01.645420"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.customer.io"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.646748"], ["updated_at", "2016-03-05 23:00:01.646748"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://www.newrelic.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.648058"], ["updated_at", "2016-03-05 23:00:01.648058"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.iron.io"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.649393"], ["updated_at", "2016-03-05 23:00:01.649393"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.650740"], ["updated_at", "2016-03-05 23:00:01.650740"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://better-error-pages.statuspage.io/"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.654198"], ["updated_at", "2016-03-05 23:00:01.654198"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://blog.statuspage.io"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.655582"], ["updated_at", "2016-03-05 23:00:01.655582"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://twitter.com/statuspageio"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.657260"], ["updated_at", "2016-03-05 23:00:01.657260"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/about"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.658526"], ["updated_at", "2016-03-05 23:00:01.658526"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://metastatuspage.com"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.659844"], ["updated_at", "2016-03-05 23:00:01.659844"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://doers.statuspage.io/"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.661171"], ["updated_at", "2016-03-05 23:00:01.661171"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://help.statuspage.io/"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.662411"], ["updated_at", "2016-03-05 23:00:01.662411"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/terms-of-service"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.663649"], ["updated_at", "2016-03-05 23:00:01.663649"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/privacy-policy"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.664889"], ["updated_at", "2016-03-05 23:00:01.664889"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/security"], ["job_id", 3], ["created_at", "2016-03-05 23:00:01.666126"], ["updated_at", "2016-03-05 23:00:01.666126"]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "links" SET "images" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["images", "{https://dka575ofm4ao0.cloudfront.net/assets/base/logos/common-8bd888bc04ebc42de7967b50285d5797.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-1-418033c09603abb775aa0f80db79912f.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-2-cc908499fc4b2e94a01cc58d0c52b99a.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-3-3d8d70ef0aaa05d9b386bed28e730f29.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-4-e896c81a180fcb139ca62c26525ccf01.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-5-ba52ce00342622a9de800bff7c013ea3.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-6-4506d7071339f6b11ec143f1f6a980c6.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-page-7b5ad76fe75d6a680ab1d2a825711acc.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-new-relic-ec72caccb8bb452bbdc2bfbd5fa7fae6.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-bitbucket-40c59c8afc0438267fbb671fdcde8975.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-travis-ci-055dce6f247b216b776fd651f38a294e.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-disqus-fa6f7f8eafc87c658ab9d813d6dc7477.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-vimeo-5060fee313fbc76a22f7ff6372853770.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-kissmetrics-5b93342794fc6dda8a71ecd28014d803.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-citrix-0a57eeb3e0ed04b06c23d2bb20dbfcb5.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-kickstarter-6d4674554edcf97acd9cf27ef7737469.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map-a6f2925a76a883337909167d828c06f3.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map_pin-424421462e92b7ddd49946960b4e8ac1.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map_pin-424421462e92b7ddd49946960b4e8ac1.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map_pin-424421462e92b7ddd49946960b4e8ac1.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-ewdurb-d7e41dd90b6b9dff26a607bcef5ec010.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-kissmetrics-74b6648f4d333ee552fdae6b271e49b2.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-mathias-d2f17c21067acf1033da87344818628b.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-travis-f6ec879c5a263aab5175a6700ef49902.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-podio-c5d0daf68fde6fa1a4ecab479607b27f.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-colin-5f53b17951f1d7a0aa03869ced2afec0.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-customer-b8b430522dd299c23fa5ea4946facaa8.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/minimal/signup/laura-bbabc0f15788d21b813d44075024be3b.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-new-relic-2f38beb130c4c265b703532f8000b145.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-chad-762db606d8fc0cc889318c893da75853.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-iron-ad21511f248701fe10345964260c4300.png}"], ["updated_at", "2016-03-05 23:00:02.894970"], ["id", 68]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "links" SET "complete" = $1, "updated_at" = $2 WHERE "links"."id" = $3  [["complete", "t"], ["updated_at", "2016-03-05 23:00:02.897361"], ["id", 68]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Completed 202 Accepted in 2952ms (Views: 0.3ms | ActiveRecord: 14.1ms)
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 16:01:38 -0700
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https://google.com", "https://www.statuspage.io"], "job"=>{}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("params", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["params", "[\"https://google.com\", \"https://www.statuspage.io\"]"], ["created_at", "2016-03-05 23:01:38.485717"], ["updated_at", "2016-03-05 23:01:38.485717"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://google.com"], ["job_id", 4], ["created_at", "2016-03-05 23:01:38.495944"], ["updated_at", "2016-03-05 23:01:38.495944"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com/imghp?hl=en&tab=wi"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.281872"], ["updated_at", "2016-03-05 23:01:39.281872"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://maps.google.com/maps?hl=en&tab=wl"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.284076"], ["updated_at", "2016-03-05 23:01:39.284076"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://play.google.com/?hl=en&tab=w8"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.285666"], ["updated_at", "2016-03-05 23:01:39.285666"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.youtube.com/?tab=w1"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.287114"], ["updated_at", "2016-03-05 23:01:39.287114"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://news.google.com/nwshp?hl=en&tab=wn"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.288503"], ["updated_at", "2016-03-05 23:01:39.288503"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://mail.google.com/mail/?tab=wm"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.289827"], ["updated_at", "2016-03-05 23:01:39.289827"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://drive.google.com/?tab=wo"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.291121"], ["updated_at", "2016-03-05 23:01:39.291121"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.google.com/intl/en/options/"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.292730"], ["updated_at", "2016-03-05 23:01:39.292730"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.google.com/history/optout?hl=en"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.294176"], ["updated_at", "2016-03-05 23:01:39.294176"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.296121"], ["updated_at", "2016-03-05 23:01:39.296121"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://plus.google.com/116899029375914044550"], ["job_id", 4], ["created_at", "2016-03-05 23:01:39.299790"], ["updated_at", "2016-03-05 23:01:39.299790"]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 1179ms (ActiveRecord: 5.0ms)
+
+NameError (undefined local variable or method `imgs' for #<Link:0x007f7f621d9ff0>):
+  app/models/link.rb:36:in `search_for_images'
+  app/models/link.rb:13:in `parse_for_links'
+  app/models/job.rb:25:in `block in generate_uris'
+  app/models/job.rb:25:in `each'
+  app/models/job.rb:25:in `generate_uris'
+  app/models/job.rb:9:in `generate'
+  app/controllers/jobs_controller.rb:6:in `create'
+
+
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.7ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.5ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.7ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/toddresudek/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.5ms)
+
+
+Started POST "/jobs" for ::1 at 2016-03-05 16:02:24 -0700
+Processing by JobsController#create as JSON
+  Parameters: {"urls"=>["https://google.com", "https://www.statuspage.io"], "job"=>{}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "jobs" ("params", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["params", "[\"https://google.com\", \"https://www.statuspage.io\"]"], ["created_at", "2016-03-05 23:02:24.305687"], ["updated_at", "2016-03-05 23:02:24.305687"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://google.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:24.314065"], ["updated_at", "2016-03-05 23:02:24.314065"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.google.com/imghp?hl=en&tab=wi"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.002713"], ["updated_at", "2016-03-05 23:02:25.002713"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://maps.google.com/maps?hl=en&tab=wl"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.004954"], ["updated_at", "2016-03-05 23:02:25.004954"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://play.google.com/?hl=en&tab=w8"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.006612"], ["updated_at", "2016-03-05 23:02:25.006612"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.youtube.com/?tab=w1"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.008097"], ["updated_at", "2016-03-05 23:02:25.008097"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://news.google.com/nwshp?hl=en&tab=wn"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.009576"], ["updated_at", "2016-03-05 23:02:25.009576"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://mail.google.com/mail/?tab=wm"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.011076"], ["updated_at", "2016-03-05 23:02:25.011076"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://drive.google.com/?tab=wo"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.012397"], ["updated_at", "2016-03-05 23:02:25.012397"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com/intl/en/options/"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.013740"], ["updated_at", "2016-03-05 23:02:25.013740"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://www.google.com/history/optout?hl=en"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.015098"], ["updated_at", "2016-03-05 23:02:25.015098"]]
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.016973"], ["updated_at", "2016-03-05 23:02:25.016973"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://plus.google.com/116899029375914044550"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.023402"], ["updated_at", "2016-03-05 23:02:25.023402"]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "links" SET "images" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["images", "{https://google.com/images/icons/product/chrome-48.png,https://google.com/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png}"], ["updated_at", "2016-03-05 23:02:25.364553"], ["id", 121]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "links" SET "complete" = $1, "updated_at" = $2 WHERE "links"."id" = $3  [["complete", "t"], ["updated_at", "2016-03-05 23:02:25.366122"], ["id", 121]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io"], ["job_id", 5], ["created_at", "2016-03-05 23:02:25.367346"], ["updated_at", "2016-03-05 23:02:25.367346"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.200714"], ["updated_at", "2016-03-05 23:02:26.200714"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/login"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.204704"], ["updated_at", "2016-03-05 23:02:26.204704"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.206237"], ["updated_at", "2016-03-05 23:02:26.206237"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.207930"], ["updated_at", "2016-03-05 23:02:26.207930"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://blog.statuspage.io/introducing-private-status-pages?utm_source=statuspageio&utm_medium=website&utm_content=introducing_private_status_pages&utm_campaign=stspg_homepage_announcement"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.209392"], ["updated_at", "2016-03-05 23:02:26.209392"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.newrelic.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.210827"], ["updated_at", "2016-03-05 23:02:26.210827"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.bitbucket.org"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.212102"], ["updated_at", "2016-03-05 23:02:26.212102"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.travis-ci.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.213483"], ["updated_at", "2016-03-05 23:02:26.213483"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.disqus.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.214882"], ["updated_at", "2016-03-05 23:02:26.214882"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.vimeo.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.216969"], ["updated_at", "2016-03-05 23:02:26.216969"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.kissmetrics.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.218707"], ["updated_at", "2016-03-05 23:02:26.218707"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://status.gotomeeting.com/"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.220381"], ["updated_at", "2016-03-05 23:02:26.220381"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://status.kickstarter.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.221952"], ["updated_at", "2016-03-05 23:02:26.221952"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://meta.statuspage.io"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.223952"], ["updated_at", "2016-03-05 23:02:26.223952"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://help.statuspage.io/knowledge_base/topics/pipe-activity-log-into-hipchat"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.226635"], ["updated_at", "2016-03-05 23:02:26.226635"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://help.statuspage.io/knowledge_base/topics/pipe-activity-log-into-campfire"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.227958"], ["updated_at", "2016-03-05 23:02:26.227958"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/tour#downtime"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.229254"], ["updated_at", "2016-03-05 23:02:26.229254"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/tour#notifications"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.230689"], ["updated_at", "2016-03-05 23:02:26.230689"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.232067"], ["updated_at", "2016-03-05 23:02:26.232067"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.233362"], ["updated_at", "2016-03-05 23:02:26.233362"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://manage.statuspage.io/signup"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.234675"], ["updated_at", "2016-03-05 23:02:26.234675"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/pricing"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.235913"], ["updated_at", "2016-03-05 23:02:26.235913"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/pricing"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.237175"], ["updated_at", "2016-03-05 23:02:26.237175"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://kissmetrics.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.238413"], ["updated_at", "2016-03-05 23:02:26.238413"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://travis-ci.org/"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.239638"], ["updated_at", "2016-03-05 23:02:26.239638"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.podio.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.240895"], ["updated_at", "2016-03-05 23:02:26.240895"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://www.customer.io"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.242331"], ["updated_at", "2016-03-05 23:02:26.242331"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://www.newrelic.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.243611"], ["updated_at", "2016-03-05 23:02:26.243611"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://www.iron.io"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.244849"], ["updated_at", "2016-03-05 23:02:26.244849"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://manage.statuspage.io/signup"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.246202"], ["updated_at", "2016-03-05 23:02:26.246202"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://better-error-pages.statuspage.io/"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.249428"], ["updated_at", "2016-03-05 23:02:26.249428"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://blog.statuspage.io"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.250667"], ["updated_at", "2016-03-05 23:02:26.250667"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://twitter.com/statuspageio"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.252268"], ["updated_at", "2016-03-05 23:02:26.252268"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/about"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.253445"], ["updated_at", "2016-03-05 23:02:26.253445"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://metastatuspage.com"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.254657"], ["updated_at", "2016-03-05 23:02:26.254657"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://doers.statuspage.io/"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.255869"], ["updated_at", "2016-03-05 23:02:26.255869"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "http://help.statuspage.io/"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.257061"], ["updated_at", "2016-03-05 23:02:26.257061"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/terms-of-service"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.258351"], ["updated_at", "2016-03-05 23:02:26.258351"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["url", "https://www.statuspage.io/privacy-policy"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.259607"], ["updated_at", "2016-03-05 23:02:26.259607"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "links" ("url", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.statuspage.io/security"], ["job_id", 5], ["created_at", "2016-03-05 23:02:26.260837"], ["updated_at", "2016-03-05 23:02:26.260837"]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "links" SET "images" = $1, "updated_at" = $2 WHERE "links"."id" = $3  [["images", "{https://dka575ofm4ao0.cloudfront.net/assets/base/logos/common-8bd888bc04ebc42de7967b50285d5797.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-1-418033c09603abb775aa0f80db79912f.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-2-cc908499fc4b2e94a01cc58d0c52b99a.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-3-3d8d70ef0aaa05d9b386bed28e730f29.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-4-e896c81a180fcb139ca62c26525ccf01.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-5-ba52ce00342622a9de800bff7c013ea3.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-tip-6-4506d7071339f6b11ec143f1f6a980c6.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/acme-demo-page-7b5ad76fe75d6a680ab1d2a825711acc.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-new-relic-ec72caccb8bb452bbdc2bfbd5fa7fae6.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-bitbucket-40c59c8afc0438267fbb671fdcde8975.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-travis-ci-055dce6f247b216b776fd651f38a294e.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-disqus-fa6f7f8eafc87c658ab9d813d6dc7477.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-vimeo-5060fee313fbc76a22f7ff6372853770.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-kissmetrics-5b93342794fc6dda8a71ecd28014d803.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-citrix-0a57eeb3e0ed04b06c23d2bb20dbfcb5.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/gallery-kickstarter-6d4674554edcf97acd9cf27ef7737469.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map-a6f2925a76a883337909167d828c06f3.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map_pin-424421462e92b7ddd49946960b4e8ac1.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map_pin-424421462e92b7ddd49946960b4e8ac1.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/world_map_pin-424421462e92b7ddd49946960b4e8ac1.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-ewdurb-d7e41dd90b6b9dff26a607bcef5ec010.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-kissmetrics-74b6648f4d333ee552fdae6b271e49b2.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-mathias-d2f17c21067acf1033da87344818628b.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-travis-f6ec879c5a263aab5175a6700ef49902.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-podio-c5d0daf68fde6fa1a4ecab479607b27f.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-colin-5f53b17951f1d7a0aa03869ced2afec0.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-customer-b8b430522dd299c23fa5ea4946facaa8.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/minimal/signup/laura-bbabc0f15788d21b813d44075024be3b.jpg,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-new-relic-2f38beb130c4c265b703532f8000b145.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-chad-762db606d8fc0cc889318c893da75853.png,https://dka575ofm4ao0.cloudfront.net/assets/pages/front-facing/homepage/quote-logo-iron-ad21511f248701fe10345964260c4300.png}"], ["updated_at", "2016-03-05 23:02:26.599141"], ["id", 133]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "links" SET "complete" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["complete", "t"], ["updated_at", "2016-03-05 23:02:26.601184"], ["id", 133]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Completed 202 Accepted in 2303ms (Views: 0.2ms | ActiveRecord: 15.3ms)
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mLink Load (0.4ms)[0m  SELECT "links".* FROM "links" WHERE "links"."job_id" = $1  [["job_id", 5]]

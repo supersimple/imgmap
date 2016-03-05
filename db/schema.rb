@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20160305204237) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "uris", force: :cascade do |t|
+  create_table "links", force: :cascade do |t|
     t.integer  "job_id"
     t.text     "url"
-    t.text     "images",     default: [],              array: true
-    t.boolean  "complete"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.text     "images",     default: [],                 array: true
+    t.boolean  "complete",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
