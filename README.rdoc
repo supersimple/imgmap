@@ -1,28 +1,25 @@
+A README in the root of your project that provides us with:
+○ The URL of your running application
+○ a small write-up about design decisions, shortcomings, possible improvements
+
+
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo app: <tt>http://sample.url</tt>
 
-Things you may want to cover:
+---
 
-* Ruby version
+Design:
+* I decided to use a common Rails stack due to ease of deployment, and for the familiarity of everyone that will be reviewing the code.
+* I broke the data into 2 models, Jobs, and Links. Jobs->Links is a one-to-many relationship because there is no way of knowing how many links will belong to the job until after it runs. Links stores the found images in a postgres array. I did not abstract the images into a model because I didnt see a need to normalize the image data.
+* This design would lend itself to searching recursively into the links for multiple levels (not just 2).
 
-* System dependencies
+Shortcomings:
+* Due to the blocking nature of the code, a long list of URLs, or a URL with a lot of links in it can make for a slow response.
 
-* Configuration
+Possible Improvements:
+* Move logic into sidekiq workers
+* Rescue more possible errors
 
-* Database creation
+My initial thought was to build this API using Node/Express. The lack of html views and the non-blocking nature would make it a good fit.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
