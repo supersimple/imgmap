@@ -30,6 +30,7 @@ class Link < ActiveRecord::Base
     begin
       doc = Nokogiri::HTML(open(url, :allow_redirections => :all))
     rescue OpenURI::HTTPError
+      update_attribute(:complete, true)
       return
     end
     

@@ -1,6 +1,7 @@
 class Job < ActiveRecord::Base
   has_many :links
   
+  # THESE SHOULD BE MOVED INTO AN ASYNC CALL IN ORDER TO GET GOOD DATA ON THE PROGRESS PAGE
   after_save :generate_uris
   after_save :generate_images
   
