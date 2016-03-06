@@ -85,6 +85,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    open_uri_redirections (0.2.1)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -190,6 +191,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  open_uri_redirections
   pg
   pry
   pry-byebug

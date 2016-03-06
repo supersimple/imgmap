@@ -8,11 +8,11 @@ class JobsController < ApplicationController
   end
   
   def status
-    render json: {id: @job.id, status: { completed: @job.completed, inprogress: @job.inprogress}}     
+    render json: { id: @job.id, status: { completed: @job.completed, inprogress: @job.inprogress } }     
   end
   
   def results
-    render json: {id: @job.id, results: {}}
+    render json: { id: @job.id, results: @job.links.inject({}){|h,link| h[link[:url]] = link[:images]; h } }  
   end
   
   private
