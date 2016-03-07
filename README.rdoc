@@ -1,8 +1,3 @@
-A README in the root of your project that provides us with:
-○ The URL of your running application
-○ a small write-up about design decisions, shortcomings, possible improvements
-
-
 == README
 
 Demo app: <tt>http://sample.url</tt>
@@ -15,10 +10,8 @@ Design:
 * This design would lend itself to searching recursively into the links for multiple levels (not just 2).
 
 Shortcomings:
-* Due to the blocking nature of the code, a long list of URLs, or a URL with a lot of links in it can make for a slow response.
 
 Possible Improvements:
-* Move logic into sidekiq workers
 * Rescue more possible errors
 
 My initial thought was to build this API using Node/Express. The lack of html views and the non-blocking nature would make it a good fit.

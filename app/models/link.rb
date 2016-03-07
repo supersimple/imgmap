@@ -25,7 +25,7 @@ class Link < ActiveRecord::Base
   def link_valid?(link)
     return false if link.nil?
     #ignore mailto: and anchors. check if link matches an expected uri pattern
-    !link.gsub(url,'').start_with?('#','mailto:') && (link =~ /\A#{URI::regexp}\z/) == 0
+    !link.gsub(url,'').start_with?('#','mailto:','javascript') && (link =~ /\A#{URI::regexp}\z/) == 0
   end
   
   def to_absolute_path(link)
