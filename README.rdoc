@@ -10,6 +10,7 @@ Design:
 * This design would lend itself to searching recursively into the links for multiple levels (not just 2).
 
 Shortcomings:
+The devops side of things is fairly brittle. I would like to add the foreman gem to ensure sidekiq reamins running even after erroring out.
 
 
 Possible Improvements:
