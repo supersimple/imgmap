@@ -1,6 +1,6 @@
 == README
 
-Demo app: <tt>http://sample.url</tt>
+Demo app: <tt>http://104.236.184.188</tt>
 
 ---
 
@@ -11,8 +11,10 @@ Design:
 
 Shortcomings:
 
+
 Possible Improvements:
 * Rescue more possible errors
+*I am running a very conservative number of sidekiq workers at the moment. Part of taht decision was because I deployed to a pretty small instance on digital ocean and i didnt want to run out of memory. I also thought it would be easier to view the /status page as it progresses if sidekiq didnt blow through all the links in 2 seconds.
 
 My initial thought was to build this API using Node/Express. The lack of html views and the non-blocking nature would make it a good fit.
 
